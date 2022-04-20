@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabwebs</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'admin:index' %}">Admin</a>
+        <a href="{% url 'homepage' %}">Home</a>
+        <a href="{% url 'accounts:register' %}">Register</a>
+        <a href="{% url 'accounts:login' %}">Login</a>
+        <a href="{% url 'blogs:blogs' %}">Blogs</a>
+        <a href="{% url 'blogs:create_blog' %}">Create</a>
+        <a href="{% url 'blogs:update_blog' %}">Update</a>
+        <a href="{% url 'blogs:delete_blog' %}">Delete</a>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
