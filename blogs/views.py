@@ -1,14 +1,26 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from . import forms
+from .models import Blog
 
 # Create your views here.
 def blogs(request):
-    return render(request, 'blogs/blogs.html')
+    blogs = Blog.objects.all().order_by('date')
+    return render(request, 'blogs/blogs.html', { 'blogs': blogs })
 
+def blog(request, slug):
+    blog = Blog.objects.get(slug=slug)
+    return render(request, 'blogs/blog.html', { 'blog': blog })
+
+@login_required(login_url="/accounts/login/")
 def create_blog(request):
-    return render(request, 'blogs/create_blog.html')
-
-def update_blog(request):
-    return render(request, 'blogs/update_blog.html')
-
-def delete_blog(request):
-    return render(request, 'blogs/delete_blog.html')
+    if request.method == 'POST':
+        form = forms.CreateBlog(request.POST, request.FILES)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
+            return redirect('blogs:blogs')
+    else:
+        form = forms.CreateBlog()
+    return render(request, 'blogs/create.html', { 'form': form })
