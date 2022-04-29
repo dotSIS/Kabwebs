@@ -1,5 +1,15 @@
-{% extends 'base_layout.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-<h1>login page...</h1>
+    <h1>Login</h1>
+    <form action="{% url 'accounts:login' %}" class="site-form" method="post">
+        {% csrf_token %}
+        {{ form }}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+        <input type="submit" value="Login">
+    </form>
+    <p>Not registered? <a href="{% url 'accounts:signup' %}">Signup</a></p>
+    <p>Maintenance? <a href="{% url 'admin:index' %}">Signup</a></p>
 {% endblock %}
