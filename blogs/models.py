@@ -14,4 +14,4 @@ class Blog(models.Model):
         return self.title
     
     def snippet(self):
-        return self.body + '...'
+        return self.body[:30] + '...'
