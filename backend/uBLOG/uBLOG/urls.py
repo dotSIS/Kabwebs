@@ -8,6 +8,7 @@ from. import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
     path('', views.homepage, name='homepage'),
     path('accounts/', include('accounts.urls')),
     path('blogs/', include('blogs.urls')),
