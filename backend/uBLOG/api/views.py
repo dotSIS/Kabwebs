@@ -1,7 +1,8 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from api import serializers
 from django.contrib.auth.models import User
 from api.models import Blog
+from api.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 class UserList(generics.ListAPIView):
@@ -15,6 +16,7 @@ class UserDetail(generics.RetrieveAPIView):
 class BlogList(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = serializers.BlogSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -22,3 +24,4 @@ class BlogList(generics.ListCreateAPIView):
 class BlogDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = serializers.BlogSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
