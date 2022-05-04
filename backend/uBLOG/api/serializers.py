@@ -9,7 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'blogs']
         
 class BlogSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='author.username')
+    author = serializers.ReadOnlyField(source='author.username')
     
     class Meta:
         model = Blog
