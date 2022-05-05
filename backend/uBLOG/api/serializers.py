@@ -17,8 +17,8 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'body', 'author', 'comments']
         
 class CommentSerializer(serializers.ModelSerializer):
-    commenter = serializers.ReadOnlyField(source='commenter.username')
+    author = serializers.ReadOnlyField(source='author.username')
     
     class Meta:
         model = Comment
-        fields = ['id', 'body', 'commenter', 'blog']
+        fields = ['id', 'body', 'author', 'blog']
