@@ -7,6 +7,8 @@ urlpatterns = [
     path('users/<int:pk>/', views.UserDetail.as_view()),
     path('blogs/', views.BlogList.as_view()),
     path('blogs/<int:pk>/', views.BlogDetail.as_view()),
+    path('comments/', views.CommentList.as_view()),
+    path('comments/<int:pk>/', views.CommentDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
