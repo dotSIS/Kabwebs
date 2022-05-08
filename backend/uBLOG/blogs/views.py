@@ -26,13 +26,13 @@ def create_blog(request):
     return render(request, 'blogs/create.html', { 'form': form })
 
 @login_required(login_url="/accounts/login/")
-def update_blog(request):
-    blog = Blog.objects.all()
+def update_blog(request, slug):
+    blog = Blog.objects.get(slug=slug)
     if request.method == 'POST':
-        form = forms.CreateBlog(request.POST, request.FILES, instance=blog)
+        form = forms.UpdateBlog(request.POST, request.FILES, instance=blog)
         if form.is_valid():
             form.save()
             return redirect('blogs:blogs')
     else:
-        form = forms.CreateBlog(instance=blog)
-    return render(request, 'blogs/update.html', { 'form': form })
+        form = forms.UpdateBlog(instance=blog)
+    return render(request, 'blogs/update.html', { 'blog': blog }, { 'form': form })
