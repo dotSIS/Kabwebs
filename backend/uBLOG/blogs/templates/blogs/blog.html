@@ -7,8 +7,8 @@
             <h2>
                 {{ blog.title }} ({{ blog.author }})
                 {% if user.is_authenticated and user == blog.author %}
-                    <a href="{% url 'blogs:update' blog.slug %}">Update</a>
-                    <button type="submit">Delete</button>
+                <a href="{% url 'blogs:update' blog.slug %}">Update</a>
+                <a href="{% url 'blogs:delete' blog.slug %}">Delete</a>
                 {% endif %}
             </h2>
             <p>{{ blog.body }}</p>
