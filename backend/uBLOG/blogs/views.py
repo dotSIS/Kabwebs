@@ -35,4 +35,11 @@ def update_blog(request, slug):
             return redirect('blogs:blogs')
     else:
         form = forms.UpdateBlog(instance=blog)
-    return render(request, 'blogs/update.html', { 'blog': blog }, { 'form': form })
+    return render(request, 'blogs/update.html', { 'form': form })
+
+@login_required(login_url="/accounts/login/")
+def delete_blog(request, slug):
+    blog = Blog.objects.get(slug=slug)
+    if request.method == 'POST':
+        blog.delete()
+        return redirect('blogs:blogs')
