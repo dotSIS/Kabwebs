@@ -9,6 +9,14 @@ uBLOG is a university blog web app for students and staffs. Hear from us.
 - `python manage.py runserver`
 
 ## Status
-- temporary django as frontend
-- django rest api in development
-- proper frontend not present
+- Temporary Django as Frontend
+- Django REST Framework API complete
+- Proper Frontend not present
+
+## DJango REST Framework endpoints
+- `localhost:8000/api/users/`
+- `localhost:8000/api/users/<int:pk>/`
+- `localhost:8000/api/blogs/`
+- `localhost:8000/api/blogs/<int:pk>`
+- `localhost:8000/api/comments/`
+- `localhost:8000/api/comments/<int:pk>`
