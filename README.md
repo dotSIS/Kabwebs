@@ -11,9 +11,15 @@ uBLOG is a university blog web app for students and staffs. Hear from us.
 ## Status
 - Temporary Django as Frontend
 - Django REST Framework API complete
-- Proper Frontend not present
+- Proper Front-end not present
+
+## Temoporary Front-end
+- `localhost:8000`
+- NOTE: Update and delete not present.
+- NOTE: Temporary Front-end is not connected to the api and have a database on its own.
 
 ## DJango REST Framework endpoints
+- `localhost:8000/api/`
 - `localhost:8000/api/users/`
 - `localhost:8000/api/users/<int:pk>/`
 - `localhost:8000/api/blogs/`
