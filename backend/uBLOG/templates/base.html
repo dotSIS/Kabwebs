@@ -13,7 +13,8 @@
     <header class="wrapper">
         <!-- <a href="{% url 'homepage' %}">Home</a> -->
         
-        <a href="{% url 'blogs:blogs' %}">Blogs</a>
+        <!-- <a href="{% url 'blogs:blogs' %}">Blogs</a> -->
+        <a href="{% url 'blogs:blogs' %}"><img class="logo" src="{% static 'logo.png' %}" alt="logo.png"></a>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
