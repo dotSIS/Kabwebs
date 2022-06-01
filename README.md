@@ -7,16 +7,11 @@ uBLOG is a university blog web app for students and staffs. Hear from us.
 - `pip install -r requirements.txt`
 - `cd backend/uBLOG`
 - `python manage.py runserver`
+- `open http://localhost:8000`
 
 ## Status
-- Temporary Django as Frontend
+- CRUD complete
 - Django REST Framework API complete
-- Proper Front-end not present
-
-## Temoporary Front-end
-- `localhost:8000`
-- NOTE: Update and delete not present.
-- NOTE: Temporary Front-end is not connected to the api and have a database on its own.
 
 ## DJango REST Framework endpoints
 - `localhost:8000/api/`
@@ -26,3 +21,4 @@ uBLOG is a university blog web app for students and staffs. Hear from us.
 - `localhost:8000/api/blogs/<int:pk>`
 - `localhost:8000/api/comments/`
 - `localhost:8000/api/comments/<int:pk>`
+- NOTE: DRF is not connected to a front-end and have a database on its own.
