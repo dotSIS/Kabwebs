@@ -9,8 +9,14 @@ def blogs(request):
     return render(request, 'blogs/blogs.html', { 'blogs': blogs })
 
 def blog(request, slug):
-    blog = Blog.objects.get(slug=slug)
-    return render(request, 'blogs/blog.html', { 'blog': blog })
+    try:
+        blog = Blog.objects.get(slug=slug)
+        return render(request, 'blogs/blog.html', { 'blog': blog })
+    except:
+        
+        return redirect('blogs:blogs')
+
+    
 
 @login_required(login_url="/accounts/login/")
 def create_blog(request):
