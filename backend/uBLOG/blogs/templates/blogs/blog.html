@@ -5,14 +5,24 @@
         <div class="blog">
             <img src="{{ blog.thumb.url }}" alt="{{ blog.slug }}">
             <h2>
-                {{ blog.title }} ({{ blog.author }})
-                {% if user.is_authenticated and user == blog.author %}
-                    <a href="{% url 'blogs:update' slug=blog.slug %}" class="highlight">Update</a>
-                    <a href="{% url 'blogs:delete' slug=blog.slug %}" class="highlight">Delete</a>
-                {% endif %}
+                <nav>
+                    <nav class="blog-details-title">
+                        {{ blog.title }}
+                    </nav> 
+                    <nav class="blog-details-author">
+                        {{ blog.author }} - {{ blog.date }}
+                    </nav>
+                </nav>
+                
+                
             </h2>
             <p>{{ blog.body }}</p>
-            <p>{{ blog.date }}</p>
+          
+
+            {% if user.is_authenticated and user == blog.author %}
+                    <a href="{% url 'blogs:update' slug=blog.slug %}" class="highlight">Update</a>
+                    <a href="{% url 'blogs:delete' slug=blog.slug %}" class="highlight">Delete</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
