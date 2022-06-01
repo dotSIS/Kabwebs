@@ -12,7 +12,7 @@
                         {{ blog.date }}
                     </div>
                         <div class="blog">
-                            <a href="{% url 'blogs:blog' slug=blog.slug%}">
+                            <a href="{% url 'blogs:blog' slug=blog.slug author=blog.author %}">
                                 <h2>{{ blog.title }}</h2>
                             </a>
                             <div class="blog-content">
@@ -47,7 +47,7 @@
                         {{ blog.date }}
                     </div>
                         <div class="blog">
-                            <a href="{% url 'blogs:blog' slug=blog.slug%}">
+                            <a href="{% url 'blogs:blog' slug=blog.slug author=blog.author %}">
                                 <h2>{{ blog.title }}</h2>
                             </a>
                             <div class="blog-content">
