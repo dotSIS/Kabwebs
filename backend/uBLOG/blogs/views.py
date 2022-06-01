@@ -8,12 +8,13 @@ def blogs(request):
     blogs = Blog.objects.all().order_by('date')
     return render(request, 'blogs/blogs.html', { 'blogs': blogs })
 
-def blog(request, slug):
+def blog(request, slug,author):
     try:
-        blog = Blog.objects.get(slug=slug)
-        return render(request, 'blogs/blog.html', { 'blog': blog })
+        blogs = Blog.objects.all().order_by('date')
+        for blog in blogs:
+            if blog.author.username == author and blog.slug == slug: 
+                return render(request, 'blogs/blog.html', { 'blog': blog })
     except:
-        
         return redirect('blogs:blogs')
 
     
