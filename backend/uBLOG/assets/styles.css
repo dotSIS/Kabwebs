@@ -1,7 +1,7 @@
 body{
     background-color: #0f121f;
     /* color: #fff; */
-    color: orangered;
+    color: rgb(255, 255, 255);
 }
 
 body *{
@@ -14,7 +14,8 @@ h1, h2, h3, h4, h5{
 }
 
 a, a:hover, a:visited{
-    color: orangered;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -46,13 +47,27 @@ nav li{
 
 nav button{
     background: none;
-    color: orangered;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     border: 0;
     font-size: 1em;
+    font-weight: bold;
+}
+nav:hover button :hover{
+    background: none;
+    color: rgb(204, 204, 204);
+    cursor: pointer;
+    border: 0;
+    font-size: 1em;
+    font-weight: bold;
 }
 
+
 .blogs{
+    margin-top: 60px;
+    border-radius: 25px;
+    border: 10px solid crimson; 
+    padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;
@@ -60,27 +75,61 @@ nav button{
 
 .blog{
     padding: 10px;
-    border: 1px solid #00dba0;
+    border-radius: 25px;
+    min-height: 150px;
+    min-width: 250px;
+    max-width: 300;
+    border: 5px solid rgb(255, 255, 255);
     position: relative;
     padding-bottom: 40px;
 }
-
+.blog .blog-content{
+    font-size: 1.2em;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+}
 .blog h2{
     font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(255, 217, 195);
+    
+    
 }
+.blogs .blog-date{
+    font-weight: lighter;
+    font-size: .6em;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
 
+}
+.blog .author-text{
+    font-weight: lighter;
+    font-size: 1em;
+    color: rgb(34, 34, 34);
+
+}
+.blog .author-text-author{
+    
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: rgb(54, 54, 54);
+}
 .blog .author{
-    padding: 10px;
-    background: #00dba0;
+    padding: 0px 0px 0px 10px;
+    background: #ffffff;
     position: absolute;
     right: 0;
     bottom: 0;
     margin: 0;
+    left: 0;
     color: #0f121f;
+    border-radius: 0px 0px 18px 18px;
 }
 
 .blog-details .blog{
-    padding: 0;
+    font-size: 1.2em;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
 }
 
 .blog-details .blog img{
@@ -92,6 +141,16 @@ nav button{
     margin: 20px auto;
     font-size: 2em;
 }
+.blog-details-author{
+
+    font-size: 0.3em;
+    font-weight: 100;
+    color: white;
+}
+.blog-details-title{
+    font-weight: bold;
+    color: white;
+}
 
 .blog-details .blog p{
     text-align: center;
@@ -99,21 +158,31 @@ nav button{
 
 .site-form{
     margin-top: 60px;
-    border: 1px solid #00dba0;
+    border-radius: 25px;
+    border: 1px solid crimson; 
     padding: 20px;
 }
 
 .site-form input, .site-form textarea{
     display: block;
-    margin: 20px 0 0 0;
+    margin: 5px 0 0 0;
     padding: 10px;
+    border-radius: 10px;
+    border-color: transparent;
 }
 
+
 a.highlight{
-    border: 1px solid #00dba0;
+    border: 1px solid #a7a7a7;
     padding: 10px;
-    border-radius: 4px;
-    color: #00dba0;
+    border-radius:25px;
+    color: #a7a7a7;
+}
+a.highlight:hover{
+    border: 1px solid #ffffff;
+    padding: 10px;
+    border-radius:25px;
+    color: #ffffff;
 }
 
 .helptext, .helptext ul{
@@ -136,10 +205,10 @@ a.highlight{
 }
 
 .site-form input[type=submit]{
-    background: #00dba0;
+    background: crimson;
     border: 0;
     color: #fff;
     font-size: 1.2em;
-    border-radius: 4px;
+    border-radius: 10px;
     margin: 10px 0;
 }

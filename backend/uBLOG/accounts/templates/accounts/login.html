@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Login</h1>
+    <h1 style="font-weight: bold;color:white">Login</h1>
     <form action="{% url 'accounts:login' %}" class="site-form" method="post">
         {% csrf_token %}
         {{ form }}
@@ -10,6 +10,6 @@
         {% endif %}
         <input type="submit" value="Login">
     </form>
-    <p>Not registered? <a href="{% url 'accounts:signup' %}">Signup</a></p>
-    <p>Maintenance? <a href="{% url 'admin:index' %}">Admin</a></p>
+    <p style="font-weight: lighter;color:white">Not registered? <a href="{% url 'accounts:signup' %}" style="font-weight: bold;color:crimson">Signup</a></p>
+    <p style="font-weight: lighter;color:white">Maintenance? <a href="{% url 'admin:index' %}" style="font-weight: bold;color:crimson">Admin</a></p>
 {% endblock %}
