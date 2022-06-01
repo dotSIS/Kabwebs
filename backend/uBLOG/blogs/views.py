@@ -8,7 +8,7 @@ def blogs(request):
     blogs = Blog.objects.all().order_by('date')
     return render(request, 'blogs/blogs.html', { 'blogs': blogs })
 
-def blog(request, slug,author):
+def blog(request, slug,author ):
     try:
         blogs = Blog.objects.all().order_by('date')
         for blog in blogs:
