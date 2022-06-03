@@ -71,7 +71,7 @@ nav:hover button :hover{
 .blogs{
     margin-top: 60px;
     border-radius: 25px;
-    border: 10px solid crimson; 
+    border: 1px solid crimson; 
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
