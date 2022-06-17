@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Blog(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, blank=False)
     slug = models.SlugField()
-    body = models.TextField()
+    body = models.TextField(blank=False)
     date = models.DateTimeField(auto_now_add=True)
     thumb = models.ImageField(default='default.png', blank=True)
     author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
